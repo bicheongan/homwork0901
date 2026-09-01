@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseRenderer: {fileID: 369924306}
   _turnPerFrame: 0.5
-  _startAngle: 30
+  _startAngle: 70
   _selfRenderer: {fileID: 0}
   _spotRenderer: {fileID: 0}
   _angle: 0
