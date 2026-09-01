@@ -55,7 +55,7 @@ public class ExhibitController : MonoBehaviour
     private void InitAngle()
     {
         _angle = _startAngle;
-        Debug.Log($"출력: {_angle}");
+        Debug.Log($"_angle: {_angle}");
     }
 
     private void ActivateVisual()
@@ -63,7 +63,7 @@ public class ExhibitController : MonoBehaviour
         _selfRenderer.enabled = true;
         _baseRenderer.enabled = true;
 
-        Debug.Log($"출력: 켜짐");
+        Debug.Log($"ActivateVisual: 켜짐");
     }
 
     private void BindSpot()
@@ -83,18 +83,19 @@ public class ExhibitController : MonoBehaviour
         _selfRenderer.enabled = false;
         _baseRenderer.enabled = false;
 
-        Debug.Log($"출력: 꺼짐");
+        Debug.Log($"DeactivateVisual: 꺼짐");
     }
 
     private void ReportAngle()
     {
-        Debug.Log($"출력: 쌓인 각도: {_angle}");
+        Debug.Log($"ReportAngle: 쌓인 각도: {_angle}");
     }
 
     private void HideSpot()
     {
+        _spotRenderer = GetComponent<Renderer>();
         _spotRenderer.enabled = false;
 
-        Debug.Log($"출력: 표식 꺼짐");
+        Debug.Log($"HideSpot: 표식 꺼짐");
     }
 }
