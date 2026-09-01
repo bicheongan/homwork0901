@@ -8,67 +8,93 @@ public class ExhibitController : MonoBehaviour
     [SerializeField] private float _turnPerFrame = 0.5f;
     [SerializeField] private float _startAngle = 30;
 
-
     [SerializeField] private Renderer _selfRenderer;
     [SerializeField] private Renderer _spotRenderer;
     [SerializeField] private float _angle;
 
+    const string TAG_FAR = "Spot";
+
     private void Awake()
     {
-        void CacheComponents() 
-        {
-            Renderer _selfRenderer= GetComponent<Renderer>();
-            Debug.Log($"_selfRenderer 담음");
-        }
-        void InitAngle()
-        {
-            _angle = _startAngle;
-            Debug.Log($"출력: {_angle}");
-        }
+        CacheComponents();
+        InitAngle();
     }
+
     private void OnEnable()
     {
-        void ActivateVisual()
-        {
-            _selfRenderer
-            _baseRenderer
-        }
+        ActivateVisual();
     }
+
     private void Start()
     {
-        void BindSpot()
-        {
-            const string TAG_FAR = "SpotMark";
-            GameObject farObject = GameObject.FindWithTag(TAG_FAR);
-            _spotRenderer = farObject.GetComponent<Renderer>();
-            Debug.Log($"태그로 찾은 것은{_spotRenderer}입니다.");
-        }
+        BindSpot();
     }
+
     private void Update()
     {
-        void TurnExhibit()
-        {
-            _angle += _turnPerFrame;
-
-        }
+        TurnExhibit();
     }
+
     private void OnDisable()
     {
-        void DeactivateVisual()
-        {
-            _selfRenderer
-            _baseRenderer
-        }
+        DeactivateVisual();
     }
+
     private void OnDestroy()
     {
-        void ReportAngle()
-        {
+        ReportAngle();
+        HideSpot();
+    }
 
-        }
-        void HideSpot()
-        {
+    private void CacheComponents()
+    {
+        _selfRenderer = GetComponent<Renderer>();
+        Debug.Log($"출력: _selfRenderer 담음");
+    }
 
-        }
+    private void InitAngle()
+    {
+        _angle = _startAngle;
+        Debug.Log($"출력: {_angle}");
+    }
+
+    private void ActivateVisual()
+    {
+        _selfRenderer.enabled = true;
+        _baseRenderer.enabled = true;
+
+        Debug.Log($"출력: 켜짐");
+    }
+
+    private void BindSpot()
+    {
+        GameObject farObject = GameObject.FindWithTag(TAG_FAR);
+        GameObject.FindWithTag("Spot");
+        Debug.Log($"출력: 태그로 찾은 것은 {farObject}입니다.");
+    }
+
+    private void TurnExhibit()
+    {
+        _angle += _turnPerFrame;
+    }
+
+    private void DeactivateVisual()
+    {
+        _selfRenderer.enabled = false;
+        _baseRenderer.enabled = false;
+
+        Debug.Log($"출력: 꺼짐");
+    }
+
+    private void ReportAngle()
+    {
+        Debug.Log($"출력: 쌓인 각도: {_angle}");
+    }
+
+    private void HideSpot()
+    {
+        _spotRenderer.enabled = false;
+
+        Debug.Log($"출력: 표식 꺼짐");
     }
 }
