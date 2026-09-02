@@ -50,6 +50,8 @@ public class ExhibitController : MonoBehaviour
     {
         _selfRenderer = GetComponent<Renderer>();
         Debug.Log($"출력: _selfRenderer 담음");
+        //Renderer a = GetComponent<Renderer>();
+        //Debug.Log($"출력: a 담음");
     }
 
     private void InitAngle()
